@@ -1,0 +1,30 @@
+Architecture:
+Frontend to Backend: GET, POST, PUT, DELETE
+Backend to Frontend: 200 OK, 201 Created
+Backend to Database: INSERT, SELECT, UPDATE, DELETE
+Database to Backend: Data Result
+
+Add New Recipe:
+User adds Pancakes recipe
+Frontend sends POST /recipes
+Backend creates new recipe in database
+Database confirms
+Backend returns 201 Created
+Frontend updates recipe list
+
+Edit Recipe:
+User opens edit form and changes fields
+Frontend sends PUT /recipes/123
+Backend validates data
+Backend updates recipe in database
+Database confirms
+Backend returns 200 OK
+Frontend shows updated recipe
+
+Read Recipe:
+User clicks recipe in list
+Frontend sends GET /recipes/123
+Backend selects recipe in database
+Database returns recipe row
+Backend returns 200 OK
+Frontend displays recipe details
