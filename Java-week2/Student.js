@@ -1,33 +1,40 @@
 const class07Students = [];
+
+function getNumberOfStudents() {
+  return class07Students.length;
+}
+
 function addStudentToClass(studentName) {
-  // You write code here
-  if (studentName === "") {
-    console.log("You must give a student name");
+  // Queen special case: can be added even if full, but prevent duplicates
+  if (studentName === "Queen") {
+    if (!class07Students.includes("Queen")) {
+      class07Students.push("Queen");
+    }
     return;
   }
 
+  // Validate input
+  if (!studentName || typeof studentName !== "string") {
+    return;
+  }
+
+  // Duplicate check
   if (class07Students.includes(studentName)) {
-    console.log(`Student ${studentName} is already in the class`);
     return;
   }
 
-  if (studentName >= 6) {
+  // Class limit (6 students)
+  if (getNumberOfStudents() >= 6) {
     console.log("Cannot add more students to class 07");
     return;
   }
-  if (studentName === "Queen") {
-    class07Students.push(studentName);
-    return;
-  }
-}
 
-function getNumberOfStudents() {
-  // You write code here
-  return class07Students.length;
+  // Add regular student
+  class07Students.push(studentName);
 }
-addStudentToClass("Benjamin");
-addStudentToClass("Sarah");
-addStudentToClass("Jonas");
-addStudentToClass("Mia");
-addStudentToClass("Ali");
-addStudentToClass("Lena");
+addStudentToClass("Alice");
+addStudentToClass("Bob");
+addStudentToClass("Bob");        // duplicate — should not be added
+addStudentToClass("Queen");      // Queen added
+// Fill to 6 students then try add another regular student -> should be rejected
+

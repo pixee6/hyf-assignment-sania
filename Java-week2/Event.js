@@ -10,11 +10,7 @@ function getEventWeekday(daysFromToday) {
     "Friday",
     "Saturday",
   ];
-  for (let i = 0; i < weekdays.length; i++) {
-    if (i === eventDay) {
-      return weekdays[i];
-    }
-  }
+ return weekdays[eventDay];
 }
 
 console.log(getEventWeekday(9));
